@@ -1,0 +1,18 @@
+market,symbol,type,description,quote_currency,contract_multiplier,minimum_price_variation,lot_size,market_ticker,minimum_order_size,price_magnifier,strike_multiplier
+gmocoin,BTCJPY,crypto,Bitcoin-Japanese Yen,JPY,1,1,0.00001,BTC,0.00001
+gmocoin,ETHJPY,crypto,Ethereum-Japanese Yen,JPY,1,1,0.0001,ETH,0.001
+gmocoin,BCHJPY,crypto,Bitcoin Cash-Japanese Yen,JPY,1,1,0.001,BCH,0.01
+gmocoin,LTCJPY,crypto,Litecoin-Japanese Yen,JPY,1,1,0.01,LTC,0.1
+gmocoin,XRPJPY,crypto,XRP-Japanese Yen,JPY,1,0.001,1,XRP,1
+gmocoin,XLMJPY,crypto,Stellar Lumens-Japanese Yen,JPY,1,0.001,1,XLM,1
+gmocoin,DOTJPY,crypto,Polkadot-Japanese Yen,JPY,1,1,0.1,DOT,0.1
+gmocoin,ATOMJPY,crypto,Cosmos-Japanese Yen,JPY,1,1,0.01,ATOM,0.01
+gmocoin,FCRJPY,crypto,FC Ryukyu Coin-Japanese Yen,JPY,1,0.001,1,FCR,10
+gmocoin,ADAJPY,crypto,Cardano-Japanese Yen,JPY,1,0.001,1,ADA,1
+gmocoin,LINKJPY,crypto,Chainlink-Japanese Yen,JPY,1,1,0.1,LINK,0.1
+gmocoin,DOGEJPY,crypto,Dogecoin-Japanese Yen,JPY,1,0.001,1,DOGE,10
+gmocoin,SOLJPY,crypto,Solana-Japanese Yen,JPY,1,1,0.01,SOL,0.01
+gmocoin,ASTRJPY,crypto,Astar-Japanese Yen,JPY,1,0.001,1,ASTR,10
+gmocoin,NACJPY,crypto,NOT A HOTEL COIN-Japanese Yen,JPY,1,0.001,0.1,NAC,0.1
+gmocoin,SUIJPY,crypto,Sui-Japanese Yen,JPY,1,0.001,0.1,SUI,0.1
+gmocoin,WILDJPY,crypto,Wilder World-Japanese Yen,JPY,1,0.001,1,WILD,1

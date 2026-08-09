@@ -1,0 +1,39 @@
+# systemd unit: runs the GMO Coin momentum rotation live inside the official
+# quantconnect/lean image, restarting automatically on any exit (engine crash,
+# network loss, instance reboot). Installed by deploy/aws/setup-ec2.sh.
+#
+# The strategy is restart-safe: on every start Lean restores cash and open
+# orders from the brokerage and the algorithm re-warms its indicators from
+# GMO Coin kline history.
+[Unit]
+Description=Lean live trading - GMO Coin momentum rotation
+After=docker.service network-online.target
+Requires=docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+# fresh credentials from SSM Parameter Store on every (re)start
+ExecStartPre=/usr/local/bin/lean-gmocoin-env.sh
+ExecStartPre=-/usr/bin/docker rm -f lean-gmocoin
+# ALGORITHM_TYPE_NAME / ALGORITHM_LOCATION select the algorithm (defaults to the
+# momentum rotation); set them via a systemd drop-in, e.g.
+#   [Service]
+#   Environment=ALGORITHM_TYPE_NAME=GMOCoinAtrGrid24H
+#   Environment=ALGORITHM_LOCATION=/repo/examples/gmocoin_atr_grid_24h.py
+ExecStart=/usr/bin/docker run --rm --name lean-gmocoin \
+    --env-file /run/lean-gmocoin.env \
+    -e ALGORITHM_TYPE_NAME -e ALGORITHM_LOCATION \
+    -v /opt/lean-gmocoin/repo:/repo:ro \
+    -v /opt/lean-gmocoin/data/symbol-properties/symbol-properties-database.csv:/Lean/Data/symbol-properties/symbol-properties-database.csv:ro \
+    -v /opt/lean-gmocoin/data/market-hours/market-hours-database.json:/Lean/Data/market-hours/market-hours-database.json:ro \
+    --entrypoint /bin/sh quantconnect/lean:latest /repo/scripts/live-container.sh
+ExecStop=/usr/bin/docker stop lean-gmocoin
+Restart=always
+RestartSec=60
+# stop retrying only if it crash-loops hard (>10 restarts in 30 min)
+StartLimitIntervalSec=1800
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target
