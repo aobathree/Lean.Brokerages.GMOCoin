@@ -105,7 +105,7 @@ class MyAlgorithm(QCAlgorithm):
 
 C# も同様に `SetBrokerageModel(new GMOCoinBrokerageModel())`(`using QuantConnect.Brokerages.GMOCoin;`)。
 
-- 市場登録は DLL ロード時に自動で行われます(`Market.Add("gmocoin", 45)` 相当。id は config `gmocoin-market-id` で変更可)
+- 市場登録は DLL ロード時に自動で行われます(`Market.Add("gmocoin", 46)` 相当。id は config `gmocoin-market-id` で変更可)
 - post-only 指値は `GMOCoinOrderProperties { PostOnly = true }` を注文プロパティに指定(GMOコインの `timeInForce: SOK`)
 - 注文の変更は**価格のみ**可能(`changeOrder` API)。数量を変える場合は cancel + 再発注
 - 対応注文タイプ: Market / Limit / StopMarket(GMO の逆指値 `STOP`)。StopLimit は非対応

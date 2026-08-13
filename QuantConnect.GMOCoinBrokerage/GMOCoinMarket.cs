@@ -22,10 +22,10 @@ namespace QuantConnect.Brokerages.GMOCoin
     /// Registers the GMO Coin market with Lean at assembly load, so that a stock
     /// (unmodified) Lean build can resolve <c>Symbol.Create("BTCJPY",
     /// SecurityType.Crypto, GMOCoinMarket.Name)</c> without any change to
-    /// <c>Market.cs</c>. The numeric market id defaults to 45 (kept clear of the
-    /// built-in markets and of the bitbank plugin's id 44) and can be overridden
-    /// with the <c>gmocoin-market-id</c> config key should a future Lean version
-    /// claim it.
+    /// <c>Market.cs</c>. The numeric market id defaults to 46 (kept clear of the
+    /// built-in markets and of the sibling plugins' ids: bitbank 44, kabuSTATION
+    /// 45) and can be overridden with the <c>gmocoin-market-id</c> config key
+    /// should a future Lean version claim it.
     /// </summary>
     public static class GMOCoinMarket
     {
@@ -33,7 +33,7 @@ namespace QuantConnect.Brokerages.GMOCoin
         public const string Name = "gmocoin";
 
         /// <summary>Default numeric market identifier</summary>
-        public const int DefaultId = 45;
+        public const int DefaultId = 46;
 
         /// <summary>
         /// Runs when the plugin assembly is loaded (factory discovery in live mode,

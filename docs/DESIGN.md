@@ -116,7 +116,7 @@ GMOコインのタイムスタンプは ISO-8601 文字列(`2019-03-19T02:15:06.
   `BTC, ETH, BCH, LTC, XRP, XLM, DOT, ATOM, FCR, ADA, LINK, DOGE, SOL, ASTR, NAC, SUI, WILD`
 - `_JPY` サフィックス付き(レバレッジ)銘柄は対象外
 - 数値仕様は API を正とする: `tickSize` → `minimum_price_variation`、`sizeStep` → `lot_size`、`minOrderSize` → `minimum_order_size`
-- 市場 id は 45(bitbank プラグインの 44 と併用可能。config `gmocoin-market-id` で変更可)
+- 市場 id は 46(bitbank プラグインの 44、kabuSTATION プラグインの 45 と併用可能。config `gmocoin-market-id` で変更可)
 
 ## 4. 口座通貨 = JPY
 
